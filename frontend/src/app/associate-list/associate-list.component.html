@@ -1,0 +1,17 @@
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Associate Name</th>
+                <th>Associate email</th>
+                <th>Tasks</th>
+              </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor ="let associate of associates">
+            <td>{{associate[4]}}</td>
+            <td>{{associate[3]}}</td>
+            <td><a  routerLink="atasks/{{associate[3]}}" class="nav-link">Tasks</a></td>
+            </tr>
+        </tbody>
+    </table>

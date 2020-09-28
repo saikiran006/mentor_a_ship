@@ -1,0 +1,39 @@
+<p>Tasks assigned</p>
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Task</th>
+                <th>Date Assigned</th>
+                <th>Percentage Completed</th>
+                <th>Assessment</th>
+                <th>Notes</th>
+              </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor ="let task of tasks">
+            <td>{{task[3]}}</td>
+            <td>{{task[2] | date | uppercase}}</td>
+            <td>{{task[5]}}</td>
+            <td>{{task[1]}}</td>
+            <td>{{task[4]}}</td>
+            <td><button class="btn-danger btn" (click)="onDelete(task[0])">Delete</button></td>
+        </tr>
+        <tr>
+                <th><input type="text" name="taskname" required [(ngModel)]="taskname"></th>
+                <th><input type="date" name="taskdate"  [(ngModel)]="taskdate"></th>
+                <th>0</th>
+                <th><input type="text" name="tastassesment"  [(ngModel)]="taskassesment"></th>
+                <th><input type="text" name="tasknotes"  [(ngModel)]="tasknotes"></th>
+        </tr>
+        <p *ngIf="nameIsNull">Name Required</p>
+        <button class="btn btn-success" type="submit" (click)="onAddTask()">Add</button>
+        </tbody>
+    </table>
+    
+    </div>
+
+    <div *ngIf="add">
+        
+    </div>
+

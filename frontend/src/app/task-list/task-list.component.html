@@ -1,0 +1,33 @@
+<p>Assigned Tasks</p>
+
+<div class="container">
+<table class="table">
+    <thead>
+        <tr>
+            <th>Task</th>
+            <th>Date Assigned</th>
+            <th>Percentage</th>
+            <th>Assessment</th>
+            <th>Notes</th>
+            <th>Update</th>
+          </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor ="let task of tasks">
+        <td>{{task[3]}}</td>
+        <td>{{task[2] | date | uppercase}}</td>
+        <td>{{task[5]}}</td>
+        <td>{{task[1]}}</td>
+        <td>{{task[4]}}</td>
+        <td><button class="btn-success" (click)="onUpdate(task[0],task[3])">Update</button></td>
+    </tr>
+    </tbody>
+</table>
+</div>
+<form *ngIf="update">
+    <p>{{updateName}}</p>
+    <p>Enter percentage</p>
+    <input type="number" name="updatepercent" min=0 max=100 [(ngModel)]="updatepercent">
+    <button (click)="onSubmit()">submit</button>
+    <div *ngIf="updatepercent>100">Enter a number less than hundred</div>
+</form>
